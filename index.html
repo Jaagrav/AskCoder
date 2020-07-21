@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AskCoder - Home</title>
+    <link rel="stylesheet" href="design.css" />
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <div class="background"></div>
+    <div class="container">
+      <div class="group1">
+        <div class="header">
+          <div class="title">Ask<highL>Coder</highL></div>
+          <div class="menu">
+            <a href="" onclick="window.location.reload()" breadth="60px"
+              >Home</a
+            >
+            <a
+              href=""
+              onclick="window.open('https://github.com/Jaagrav/AskCoder','_blank')"
+              breadth="120px"
+              >Source Code</a
+            >
+            <a
+              href=""
+              onclick="window.open('https://jaagrav.github.io/JAED','_blank')"
+              breadth="60px"
+              >About</a
+            >
+          </div>
+        </div>
+        <div class="question-input-container">
+          <div class="question-name">
+            <div class="input-question-name-instruct">
+              What's your <highL>question?</highL>
+            </div>
+            <input
+              type="text"
+              placeholder="Type your question here..."
+              class="input-question-name"
+            />
+          </div>
+          <div class="description">
+            <div class="input-description-instruct">
+              Description
+            </div>
+            <textarea
+              class="input-description"
+              placeholder="Describe your question here..."
+            ></textarea>
+          </div>
+          <div class="name">
+            <div class="input-name-instruct">
+              Enter
+              <highL>name</highL>
+            </div>
+            <input
+              type="text"
+              placeholder="Type your name here..."
+              class="input-name"
+            />
+          </div>
+          <img src="./Group 3.png" class="submit-btn" />
+        </div>
+      </div>
+      <div class="group2">
+        <div class="posts">
+          <!-- <div class="post">
+            <div class="post-question-name" question="asf4234g">
+              How do I make a single page Django app with Vue CDN ?<noOfAnswers
+                >(3 Answers)</noOfAnswers
+              >
+            </div>
+          </div> -->
+        </div>
+        <div class="post-page">
+          <div class="post-post-page">
+            <img src="/AskCoder/Group 5.png" class="back-btn" />
+            <div class="post-page-question-name">
+              How do I make a single page Django app with Vue CDN ?
+            </div>
+            <div class="poster">
+              <highL>Asked by</highL> Jaagrav • 24 June, 2020
+            </div>
+            <div class="post-description">
+              I want some data from my models to show on my Front-end without me
+              refreshing the page. To be specific, a carousel that shows
+              different data at the bottom for each image when you slide
+            </div>
+            <div class="divider"></div>
+            <div class="comments">Answers</div>
+            <div class="comment-box">
+              <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nothing to see here yet. 
+              <div class="comment">
+                <div class="salutate">
+                  Use Django rest framework • Vedant • 27 June, 2020
+                </div>
+                <div class="text">
+                  Use Django rest framework to serialize the data Send the data
+                  to your template In your template set data to json script Get
+                  data with JavaScript Use recieved data for your Vue instance
+                  Then display your data via vue.
+                </div>
+              </div>
+              <div class="comment">
+                <div class="salutate">
+                  You could use packages like Django widget • Jaagrav • 06 July,
+                  2020
+                </div>
+                <div class="text">
+                  You could use packages like Django widget tweaks,crispy form
+                  etc You could also code form on the HTML page by yourself but
+                  remember to reference the proper id's to the input For example
+                  your form will generate inputs with id_question_title and
+                  id_question_text depending on your model
+                </div>
+              </div>
+              <div class="comment">
+                <div class="salutate">
+                  Paste in your error logs • Adreka • 09 July, 2020
+                </div>
+                <div class="text">
+                  Please paste in your error logs; it would be helpful for
+                  answering your question.
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBSO1l02gRubi7mZnIWhkxMcuXE-oMu33g",
+        authDomain: "converse-dd75d.firebaseapp.com",
+        databaseURL: "https://converse-dd75d.firebaseio.com",
+        projectId: "converse-dd75d",
+        storageBucket: "converse-dd75d.appspot.com",
+        messagingSenderId: "984079997699",
+        appId: "1:984079997699:web:18004d9aa2469e32c82736",
+        measurementId: "G-FT3HFDDGH1",
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="app.js"></script>
+    <script>
+      let mouseCursor = document.querySelector(".cursor");
+      let navLinks = document.querySelectorAll(".menu a");
+
+      window.addEventListener("mousemove", (e) => {
+        mouseCursor.style.top = e.pageY + "px";
+        mouseCursor.style.left = e.pageX + "px";
+      });
+
+      document
+        .querySelector(".submit-btn")
+        .addEventListener("mouseover", () => {
+          if (window.innerWidth > 600)
+            document.querySelector(".submit-btn").style.transform =
+              "scale(1.1)";
+          mouseCursor.style.opacity = "0";
+        });
+      document
+        .querySelector(".submit-btn")
+        .addEventListener("mousedown", () => {
+          if (window.innerWidth > 600)
+            document.querySelector(".submit-btn").style.transform =
+              "scale(0.9)";
+        });
+      document.querySelector(".submit-btn").addEventListener("mouseup", () => {
+        if (window.innerWidth > 600)
+          document.querySelector(".submit-btn").style.transform = "scale(1.1)";
+      });
+
+      document
+        .querySelector(".submit-btn")
+        .addEventListener("mouseleave", () => {
+          if (window.innerWidth > 600)
+            document.querySelector(".submit-btn").style.transform = "scale(1)";
+          mouseCursor.style.opacity = "1";
+        });
+
+      document.querySelector(".back-btn").addEventListener("mouseover", () => {
+        if (window.innerWidth > 600)
+          document.querySelector(".back-btn").style.transform = "scale(1.1)";
+        mouseCursor.style.opacity = "0";
+      });
+      document.querySelector(".back-btn").addEventListener("mousedown", () => {
+        if (window.innerWidth > 600)
+          document.querySelector(".back-btn").style.transform = "scale(0.9)";
+      });
+      document.querySelector(".back-btn").addEventListener("mouseup", () => {
+        if (window.innerWidth > 600)
+          document.querySelector(".back-btn").style.transform = "scale(1.1)";
+      });
+
+      document.querySelector(".back-btn").addEventListener("mouseleave", () => {
+        if (window.innerWidth > 600)
+          document.querySelector(".back-btn").style.transform = "scale(1)";
+        mouseCursor.style.opacity = "1";
+      });
+      navLinks.forEach((link) => {
+        link.addEventListener("mouseleave", () => {
+          mouseCursor.classList.remove("on-link");
+          mouseCursor.style.width = "10px";
+        });
+        link.addEventListener("mouseover", () => {
+          mouseCursor.classList.add("on-link");
+          console.log();
+          mouseCursor.style.width = link.getAttribute("breadth");
+        });
+      });
+    </script>
+  </body>
+</html>
